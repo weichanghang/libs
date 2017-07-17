@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/alex_dialog_layer_list_shadow_rectangle"
+        android:padding="8dp">
+
+        <com.wch.libs.views.dialog.xalertdialog.ProgressWheel xmlns:wheel="http://schemas.android.com/apk/com.wch.xalertdialog"
+            android:id="@+id/progressWheel"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            wheel:matProg_barWidth="4dp"
+            wheel:progressIndeterminate="true" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/loading_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_below="@+id/rl_layout"
+        android:layout_marginTop="20dp"
+        android:textColor="#333333"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

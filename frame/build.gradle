@@ -1,0 +1,65 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+
+    defaultConfig {
+
+        minSdkVersion 17
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+
+        manifestPlaceholders = [
+                GETUI_APP_ID    : "6qyoxQ4i6S7o31QDOZrEA9",
+                GETUI_APP_KEY   : "Cqzeq6fOj69iJOP6cRa8n6",
+                GETUI_APP_SECRET: "7EDVAYYM0d6TiNRRuGWGm4",
+                GETUI_APP_MASTERSECRET:"t1i0EpbVP3A3QSCtQLd4P3"
+        ]
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86_64"
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/rxjava.properties'
+    }
+    sourceSets {
+        Main.jniLibs.srcDirs = ['libs']
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:25.1.1'
+    compile 'com.google.code.gson:gson:latest.release'
+    compile 'com.squareup.picasso:picasso:latest.release'
+    compile 'com.squareup.retrofit2:retrofit:latest.release'
+    compile 'com.squareup.retrofit2:converter-gson:latest.release'
+    compile 'com.squareup.retrofit2:adapter-rxjava:latest.release'
+    compile 'com.squareup.okhttp3:okhttp:latest.release'
+    compile 'com.squareup.okio:okio:latest.release'
+    compile 'io.reactivex:rxandroid:latest.release'
+    compile 'io.reactivex:rxjava:latest.release'
+    compile 'com.lzy.net:okgo:+'
+    compile 'com.lzy.net:okrx:+'//基于RxJava和RxAndroid的扩展
+    compile 'com.lzy.net:okserver:+'//统一了下载管理和上传管理
+    compile 'com.readystatesoftware.chuck:library:1.0.4'
+    compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+
+}
